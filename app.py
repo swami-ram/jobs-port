@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 import mysql.connector
 import os
-from werkzeug.utils import secure_filename 
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'uploads'
@@ -19,6 +19,8 @@ db = mysql.connector.connect(
 cursor = db.cursor(buffered=True)
 
 # Home Page
+
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -70,7 +72,6 @@ def login():
     return render_template('login.html')
 
 
-
 # Show Jobs
 @app.route('/jobs')
 def jobs():
@@ -112,6 +113,8 @@ def apply(id):
     db.commit()
 
     return redirect('/my-applications')
+
+
 @app.route('/my-applications')
 def my_applications():
 
@@ -133,10 +136,13 @@ def my_applications():
     data = cursor.fetchall()
 
     return render_template('my_applications.html', applications=data)
+
+
 @app.route('/logout')
 def logout():
     session.clear()
     return redirect('/login')
+
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -153,7 +159,10 @@ def upload():
 
     return "Resume Uploaded Successfully"
 
+
 print("WITHDRAW ROUTE LOADED")
+
+
 @app.route('/withdraw/<int:id>')
 def withdraw(id):
 
@@ -170,7 +179,6 @@ def withdraw(id):
     db.commit()
 
     return redirect('/my-applications')
-
 
 
 @app.route('/admin/applications')
@@ -193,6 +201,7 @@ def admin_applications():
 
     return render_template('admin_applications.html', applications=data)
 
+
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
 
@@ -206,7 +215,7 @@ def admin():
 
     return render_template('admin_login.html')
 
+
 # Run App
 if __name__ == '__main__':
     app.run(debug=True)
-
