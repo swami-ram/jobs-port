@@ -40,3 +40,7 @@ jobs:
       - name: Run Tests
         run: |
           pytest
+      - name: Auto format check
+        run: |
+            pip install autopep8
+            autopep8 --diff .
