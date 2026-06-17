@@ -39,6 +39,7 @@ jobs:
 
       - name: Run Tests
         run: |
+          export PYTHONPATH=.
           pytest
       - name: Auto format check
         run: |
