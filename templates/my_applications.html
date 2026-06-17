@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Applications</title>
+</head>
+<body>
+
+<h1>Applied Jobs</h1>
+
+{% for app in applications %}
+
+<div style="border:1px solid black;padding:10px;margin:10px;">
+
+    <h3>{{ app[1] }}</h3>
+    <p>Company: {{ app[2] }}</p>
+    <p>Location: {{ app[3] }}</p>
+
+    <a href="/withdraw/{{ app[0] }}">
+        <button style="background:red;color:white;padding:5px;">
+            Withdraw Application
+        </button>
+    </a>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

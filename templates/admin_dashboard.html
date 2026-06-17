@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+<h1>Admin Dashboard</h1>
+
+<!-- ADD JOB FORM -->
+<h2>Add Job</h2>
+
+<form method="POST">
+
+    <input type="text" name="title" placeholder="Job Title" required><br><br>
+
+    <input type="text" name="company" placeholder="Company" required><br><br>
+
+    <input type="text" name="location" placeholder="Location" required><br><br>
+
+    <textarea name="description" placeholder="Job Description" required></textarea><br><br>
+
+    <button type="submit">Add Job</button>
+
+</form>
+
+<br>
+
+<!-- BUTTONS -->
+<a href="/admin/applications">
+    <button>View Applications</button>
+</a>
+
+<a href="/jobs">
+    <button>View Jobs</button>
+</a>
+
+<a href="/logout">
+    <button>Logout</button>
+</a>
+
+</body>
+</html>
